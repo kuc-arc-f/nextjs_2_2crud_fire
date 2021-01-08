@@ -6,7 +6,7 @@
 
  date    : 2021/01/07 
 
- update  : 2021/01/08
+ update  : 2021/01/08 
 
 ***
 ### Summary
@@ -31,6 +31,8 @@ yarn deploy
 
 ***
 ### Blog :
+
+https://note.com/knaka0209/n/naca65ca7272d
 
 ***
 
