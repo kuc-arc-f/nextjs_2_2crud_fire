@@ -6,7 +6,6 @@ export default {
     get_items :async function(){
         try {
             var items = []
-            console.log('#get_items')
             var firebase= await LibStore.get_firestore()
             this.database = firebase.firestore()
             var dbRef = this.database.collection('tasks')
@@ -28,15 +27,16 @@ export default {
     get_show_item :async function(id){
         try {
 //            var items = []
-//            console.log('#get_items')
+console.log('#get_items.id=' ,id)
             var database= await LibStore.get_db()
             var docRef = await database.collection("tasks").doc( id )
             var doc = await docRef.get()
-            var item = doc.data()
+            var item = await doc.data()
+            item.created_at = ""
 // console.log( item)            
-         return item
+            return item
         } catch (err) {
-            console.error(`Error: ${JSON.stringify(err)}`)
+//            console.error(`Error: ${JSON.stringify(err)}`)
             throw new Error('Error , get_show_item');
         }          
     },    

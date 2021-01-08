@@ -13,12 +13,7 @@ export default class extends Component {
     this.state = {title: '', content: ''}
     this.handleClick = this.handleClick.bind(this);
     this.database = null
-//    this.init_proc()
  } 
- /*
-  init_proc(){
-  }
- */
   handleChangeTitle(e){
     console.log("handleChangeTitle:")
     this.setState({title: e.target.value})
@@ -44,8 +39,7 @@ export default class extends Component {
           console.log('#no-User');
           window.location.href = "/"
       }
-  })     
-
+    })     
   }
   async add_item(){
     var item = {
