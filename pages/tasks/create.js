@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import Router from 'next/router'
 import React, {Component} from 'react';
-
 import firebase from 'firebase'
 
 import Header from '../Layout/AppHead';
@@ -15,7 +14,20 @@ export default class extends Component {
     this.state = {title: '', content: ''}
     this.handleClick = this.handleClick.bind(this);
     this.database = null
- } 
+//console.log(props)
+  }
+  componentDidMount(){
+    var firebase = LibStore.get_firestore()
+    firebase.auth().onAuthStateChanged(function(user) {
+        if (user) {
+            console.log("#Auth-OK");
+        } else {
+            alert("Error, auth error, please Google Login")
+            console.log('#no-User');
+            Router.push('/')
+        }
+    })        
+}   
   handleChangeTitle(e){
     console.log("handleChangeTitle:")
     this.setState({title: e.target.value})
@@ -95,12 +107,5 @@ export default class extends Component {
       </div>
     )    
   } 
-
-}
-export async function getStaticProps({ params }) {
-  var items =[]
-  return {
-      props: { data: items },
-  }
 }
 

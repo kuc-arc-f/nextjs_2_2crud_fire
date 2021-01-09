@@ -9,8 +9,6 @@ import LibAuth from '../libs/LibAuth';
 export default class extends Component {  
   constructor(props){
     super(props)
-//    this.init_proc()
-//    this.state = {title: '', content: ''}
   }    
   init_proc(){
     var firebase=  LibStore.get_firestore()
@@ -24,7 +22,6 @@ export default class extends Component {
       }
     })     
   }
-//  console.log(data)
   render(){
     return (
       <div>
@@ -41,13 +38,4 @@ export default class extends Component {
     );
   }
 }
-/*
-export async function getStaticProps({ params }) {
-  var valid_login = false
-  return {
-    props: {
-      data: {}, valid_login: valid_login
-    },
-  } 
-}
-*/
+
