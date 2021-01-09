@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import Router from 'next/router'
 import React from 'react'
 
 import LibTask from '../../../libs/LibTask';
@@ -46,7 +47,8 @@ console.log(this.state )
     var docRef = db.collection("tasks").doc(this.props.id)
     docRef.delete().then(function() {
         console.log("Document successfully deleted!")
-        window.location.href = "/tasks"
+//        window.location.href = "/tasks"
+        Router.push('/tasks')
     }).catch(function(error) {
         console.error("Error removing document: ", error)
     })    
@@ -65,7 +67,8 @@ console.log(this.state )
     })
     .then(function() {
         console.log("Document successfully updated!");
-        window.location.href = "/tasks"
+//        window.location.href = "/tasks"
+      Router.push('/tasks')
     })
     .catch(function(error) {
         console.error("Error updating document: ", error);

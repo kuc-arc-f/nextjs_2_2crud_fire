@@ -1,5 +1,7 @@
 import Link from 'next/link';
+import Router from 'next/router'
 import React, {Component} from 'react';
+
 import firebase from 'firebase'
 
 import Header from '../Layout/AppHead';
@@ -51,7 +53,8 @@ export default class extends Component {
     var db= await LibStore.get_db()
     db.collection('tasks').add(item).then(function(docRef) {
         console.log("Document written with ID: ", docRef.id)
-        window.location.href = "/tasks"
+//        window.location.href = "/tasks"
+        Router.push('/tasks')
     }).catch(function(error) {
         alert("Error save: "+ error)
         console.error("Error adding document: ", error)
